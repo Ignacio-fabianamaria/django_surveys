@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     "surveys"
 ]
 ```
+
 após a adição do app surveys, rodar os comandos makemigrations e migrate
 python manage.py makemigrations surveys
 python manage.py migrate

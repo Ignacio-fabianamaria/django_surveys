@@ -13,10 +13,18 @@ class Question(models.Model):
         return self.text
         
 
-
 class Option(models.Model):
     text = models.CharField(max_length=200)
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.text
+    
+
+class Vote(models.Model):
+    option = models.ForeignKey(Option, on_delete=models.CASCADE)
+    created_at = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return self.option.text
+        
