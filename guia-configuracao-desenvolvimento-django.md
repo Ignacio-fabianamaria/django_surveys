@@ -26,3 +26,5 @@ INSTALLED_APPS = [
 após a adição do app surveys, rodar os comandos makemigrations e migrate
 python manage.py makemigrations surveys
 python manage.py migrate
+
+Após criar as models no app surveys configurar o arquivo admin no surveys app.
