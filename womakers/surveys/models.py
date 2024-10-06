@@ -11,7 +11,7 @@ class Question(models.Model):
 
     def __str__(self):
         return self.text
-        
+
 
 class Option(models.Model):
     text = models.CharField(max_length=200)
@@ -27,4 +27,3 @@ class Vote(models.Model):
 
     def __str__(self):
         return self.option.text
-        
