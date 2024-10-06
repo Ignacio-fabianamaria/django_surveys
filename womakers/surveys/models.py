@@ -19,7 +19,7 @@ class Option(models.Model):
 
     def __str__(self):
         return self.text
-    
+
 
 class Vote(models.Model):
     option = models.ForeignKey(Option, on_delete=models.CASCADE)

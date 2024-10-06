@@ -20,7 +20,14 @@ class QuestionAdmin(admin.ModelAdmin):
 
 
 class VoteAdmin(admin.ModelAdmin):
-    list_display = ['option__question', 'option', 'created_at']
+    list_display = ['get_question', 'option', 'created_at']
+
+    def get_question(self, obj):
+        # acessa a questão através da opção
+        return obj.option.question
+
+    # define a descrição da colunanno admin
+    get_question.short_description = 'Question'
 
 
 admin.site.register(Question, QuestionAdmin)

@@ -1,8 +1,12 @@
 
 
-    <h2>Pesquisas</h2>
-    <ul>
+<h2>Pesquisas</h2>
+<ul>
+    {% if object_list %}
         {% for question in object_list %}
-            <li>{{ question.text }}</li>
+            <li><a href="{% url 'question_detail' question.id %}">{{ question.text }}</a></li>
         {% endfor %}
-    </ul>
+    {% else %}
+        <li>Não há pesquisas disponíveis.</li>
+    {% endif %}
+</ul>

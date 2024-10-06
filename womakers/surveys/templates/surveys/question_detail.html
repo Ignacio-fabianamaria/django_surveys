@@ -1,0 +1,20 @@
+
+<h1>{{question.text}}</h1>
+
+<h3>Selecione uma opção:</h3>
+
+<ul>
+    <form method="post" action="{% url 'question_vote' question.id %}">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">Votar</button>
+    </form>
+</ul>
+
+<h1>Resultados</h1>
+
+<ul>
+    {% for option in question.option_set.all %}
+        <li>{{ option.text}}: {{ option.vote_set.count}}</li>
+        {% endfor %}
+</ul>
