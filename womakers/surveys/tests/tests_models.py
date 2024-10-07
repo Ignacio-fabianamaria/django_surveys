@@ -1,7 +1,7 @@
 # https://docs.djangoproject.com/en/5.1/topics/testing/overview/
 
 from django.test import TestCase
-from .models import Question, Option, Vote
+from ..models import Question, Option, Vote
 from datetime import date
 
 
@@ -37,3 +37,4 @@ class VoteTestCase(BaseTestCase):
 
         self.assertEqual(vote.option, self.option1)
         self.assertEqual(Vote.objects.count(), 1)
+        self.assertEqual(vote.created_at.date(), date.today())
