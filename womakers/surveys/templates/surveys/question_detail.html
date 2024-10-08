@@ -7,34 +7,52 @@
     <div class="col-md-6">
         <div class="card">
             <div class="card-body">
-<p>Selecione uma opção:</p>
-<ul class="mt-3">
-    <form method="post" action="{% url 'question_vote' question.id %}">
-        {% csrf_token %}
-        {% for field in form %}
-        <!-- Exibe apenas o widget (campo), sem a label -->
-        {{ field }}
-        {% endfor %}
-        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button type="submit" class="btn btn-outline-primary mt-3">Votar</button>
+                <p>Selecione uma opção:</p>
+                <ul class="mt-3">
+                    <form method="post" action="{% url 'question_vote' question.id %}">
+                        {% csrf_token %}
+                        {% for field in form %}
+                        <!-- Exibe apenas o widget (campo), sem a label -->
+                        {{ field }}
+                        {% endfor %}
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <button type="submit" class="btn btn-outline-primary mt-3">Votar</button>
+                        </div>
+                    </form>
+                </ul>
+            </div>
         </div>
-    </form>
-</ul>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h1>Resultados</h1>
+                <p>Total: {{question.total_votes}} votos</p>
+                
+                <canvas id="myChart" class="w-50 h-50"></canvas>
+            </div>
+        </div>
+    </div>
 </div>
-</div>
-</div>
-<div class="col-md-6">
-    <div class="card">
-        <div class="card-body">
-<h1>Resultados</h1>
-<p>Total: {{question.total_votes}} votos</p>
-<ul>
-    {% for option in question.option_set.all %}
-        <li>{{ option.text}}: {{ option.vote_set.count}}</li>
-        {% endfor %}
-</ul>
-</div>
-</div>
-</div>
-</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const ctx = document.getElementById('myChart');
+    const data = {
+  labels: {{ chart_labels|safe }},
+  datasets: [{
+    label: 'Votes',
+    data: {{ chart_numbers }},
+    backgroundColor: [
+      'rgb(255, 99, 132)',
+      'rgb(54, 162, 235)',
+      'rgb(255, 205, 86)'
+    ],
+    hoverOffset: 4
+  }]
+};
+    new Chart(ctx, {
+      type: 'pie',
+      data: data,
+    });
+  </script>
 {% endblock %}

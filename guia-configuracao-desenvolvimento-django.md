@@ -62,6 +62,10 @@ INSTALLED_APPS = (
     "bootstrap5",
     # ...
 )
+
+
+Grafico:
+https://www.chartjs.org/docs/latest/getting-started/
 # __________________________________________________
 
 Download do projeto
