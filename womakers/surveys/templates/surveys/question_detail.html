@@ -27,6 +27,7 @@
     <div class="card">
         <div class="card-body">
 <h1>Resultados</h1>
+<p>Total: {{question.total_votes}} votos</p>
 <ul>
     {% for option in question.option_set.all %}
         <li>{{ option.text}}: {{ option.vote_set.count}}</li>

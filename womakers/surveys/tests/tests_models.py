@@ -38,3 +38,11 @@ class VoteTestCase(BaseTestCase):
         self.assertEqual(vote.option, self.option1)
         self.assertEqual(Vote.objects.count(), 1)
         self.assertEqual(vote.created_at.date(), date.today())
+
+    def test_Vote_total_votes_property(self):
+        Vote.objects.create(option=self.option1)
+        Vote.objects.create(option=self.option1)
+        Vote.objects.create(option=self.option2)
+
+        self.assertEqual(self.question.total_votes, 3)
+ 

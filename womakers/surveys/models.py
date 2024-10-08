@@ -11,6 +11,10 @@ class Question(models.Model):
 
     def __str__(self):
         return self.text
+    
+    @property
+    def total_votes(self):
+        return Vote.objects.filter(option__question=self).count()
 
 
 class Option(models.Model):
