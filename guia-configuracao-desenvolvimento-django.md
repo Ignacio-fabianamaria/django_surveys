@@ -52,6 +52,16 @@ Dentro na pasta do app dentro da pasta template [surveys] crie os templates nece
 - iniciando os testes:
 python manage.py test
 Por padrao o django cria uma pasta com nome test.py no aplicativo criado no projeto [surveys]
+
+bootstraps 
+pip install django-bootstrap-v5
+Add to INSTALLED_APPS in your settings.py:
+
+INSTALLED_APPS = (
+    # ...
+    "bootstrap5",
+    # ...
+)
 # __________________________________________________
 
 Download do projeto
