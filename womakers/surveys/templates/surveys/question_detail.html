@@ -2,14 +2,14 @@
 {% load bootstrap5 %}
 {% block content %}
 
-<h1>{{question.text}}</h1>
+<h1 class="fw-bold fs-2" style="font-family: 'Roboto', sans-serif">{{question.text}}</h1>
 <div class="row">
     <div class="col-md-6">
         <div class="card">
             <div class="card-body">
-                <p>Selecione uma opção:</p>
+                <p class="fs-5 bg-body-secondary" style="font-family: 'Roboto', sans-serif">Selecione uma opção:</p>
                 <ul class="mt-3">
-                    <form method="post" action="{% url 'question_vote' question.id %}">
+                    <form class="fs-6 bg-body-secondary" method="post" action="{% url 'question_vote' question.id %}">
                         {% csrf_token %}
                         {% for field in form %}
                         <!-- Exibe apenas o widget (campo), sem a label -->
@@ -23,13 +23,19 @@
             </div>
         </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 ">
         <div class="card">
             <div class="card-body">
-                <h1>Resultados</h1>
-                <p>Total: {{question.total_votes}} votos</p>
-                
-                <canvas id="myChart" class="w-50 h-50"></canvas>
+                <div class="d-flex mb-4 mt-2 gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="#0DCAF0" class="bi bi-graph-up" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M0 0h1v15h15v1H0zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07"/>
+                      </svg>
+                      <h1 class="fw-bold fs-2" style="font-family: 'Roboto', sans-serif">Resultados</h1>
+                </div>
+                <p class="fs-5 bg-body-secondary" style="font-family: 'Roboto', sans-serif">Total: {{question.total_votes}} votos</p>
+                <div class="d-flex justify-content-center align-items-center">
+                    <canvas id="myChart" class="w-50 h-50"></canvas>
+                </div>
             </div>
         </div>
     </div>
@@ -38,21 +44,30 @@
 <script>
     const ctx = document.getElementById('myChart');
     const data = {
-  labels: {{ chart_labels|safe }},
-  datasets: [{
-    label: 'Votes',
-    data: {{ chart_numbers }},
-    backgroundColor: [
-      'rgb(255, 99, 132)',
-      'rgb(54, 162, 235)',
-      'rgb(255, 205, 86)'
-    ],
-    hoverOffset: 4
-  }]
-};
-    new Chart(ctx, {
-      type: 'pie',
-      data: data,
+        labels: {{ chart_labels|safe }},
+        datasets: [{
+            label: 'Votes',
+            data: {{ chart_numbers }},
+            backgroundColor: [
+                'rgb(255, 205, 86)',  // Amarelo
+                'rgb(54, 162, 235)',  // Azul
+                'rgb(255, 99, 132)'    // Rosa
+            ],
+            hoverOffset: 4
+        }]
+    };
+
+    const myChart = new Chart(ctx, {
+        type: 'pie',
+        data: data,
+        options: {
+            plugins: {
+                legend: {
+                    position: 'left', // Define a posição da legenda à direita
+                    align: 'start', // Alinha a legenda no topo
+                },
+            },
+        },
     });
-  </script>
+</script>
 {% endblock %}
