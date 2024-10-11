@@ -96,10 +96,12 @@ Para ajudar na configuração e no desenvolvimento do projeto Django, foi criado
 
 Para facilitar o desenvolvimento do projeto, foi criado um documento contendo comandos úteis que podem ser utilizados durante o processo. Este documento serve como um guia prático, reunindo comandos que auxiliam na configuração, execução e manutenção do projeto.
 
-[Acesse o documento de comandos úteis aqui](https://github.com/Ignacio-fabianamaria/django_surveys/blob/main/comandos-uteis.md)
+[Acesse o documento de comandos úteis aqui](https://github.com/Ignacio-fabianamaria/django_surveys/blob/main/comandos_uteis.md)
 
 ##  Documentação
 
 Para manter a organização e facilitar o entendimento do projeto, foi criado um documento que contém todos os links para a documentação utilizada ao longo do desenvolvimento. Este documento servirá como um repositório central de informações relevantes, funcionando como uma referência para auxiliar o estudo e o aprendizado.
+
+[Acesse o documento aqui](https://github.com/Ignacio-fabianamaria/django_surveys/blob/main/links_uteis_documentacao.md)
 
 ## 🚧 Em Construção 🚧
