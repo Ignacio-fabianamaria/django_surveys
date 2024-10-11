@@ -1,5 +1,8 @@
 # Django Surveys
 
+Este projeto foi desenvolvido como parte do módulo Django do Bootcamp de Python & Django oferecido pela WoMakersCode, em parceria com o iFood, Potência Tech e Microsoft. O objetivo do projeto foi criar uma aplicação de pesquisas. O projeto Django Survey foi desenvolvido em aula prática para aplicar os conhecimentos teóricos sobre Django e testes em Python.
+[Mais Mulheres Tech](https://www.maismulheres.tech/)
+
 ## Descrição
 
 O `django_surveys` é um projeto em Django para gerenciar e exibir pesquisas, permitindo que os usuários visualizem uma lista de pesquisas disponíveis, vejam os detalhes de cada pesquisa, votem nas opções fornecidas e visualizem os resultados em forma de gráfico. O cadastro e a gestão das pesquisas são realizados através do Django Admin.
