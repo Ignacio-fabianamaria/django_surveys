@@ -6,11 +6,34 @@
   {% load bootstrap5 %}
   {% bootstrap_css %}
   {% bootstrap_javascript %}
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .content {
+      flex: 1;
+    }
+
+    footer {
+      margin-top: auto;
+      font-size: 0.9rem; 
+    }
+  </style>
 </head>
 <body>
 
 <div class="container">
-  <ul class="nav bg-info">
+  <ul class="nav bg-info rounded-bottom">
     <li class="nav-item">
       <a class="nav-link link-light fs-5 " href="/">Pesquisas</a>
     </li>
@@ -18,12 +41,20 @@
       <a class="nav-link link-light fs-5 " href="/admin">Admin</a>
     </li>
   </ul>
-<div class="row mt-3">
+
+  <div class="row mt-3 content">
     <div class="col-md-12">
-    {% block content %}
-    {% endblock %}
+      {% block content %}
+      {% endblock %}
+    </div>
+  </div>
+
+  <footer class="bg-info text-light text-center py-1 mt-4 rounded-top d-flex align-items-center justify-content-center">
+    <div class="container">
+      <p class="mb-0">&copy; 2024 - Desenvolvido no Bootcamp Python & Django da WoMakersCode</p>
+    </div>
+  </footer>
 </div>
-</div>
-</div>
+
 </body>
 </html>
